@@ -30,6 +30,7 @@ app.use((err, req, res, next) => {
   res.json({
     title: err.title || "Server Error",
     message: err.message,
+    errors: err.errors, // Includes our array of validation errors in our JSON response
     stack: isProduction ? null : err.stack,
   });
 });
